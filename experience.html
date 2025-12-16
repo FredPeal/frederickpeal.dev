@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio - Work Experience</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        dark: {
+                            bg: '#0D131C',      // Fondo principal
+                            card: '#121C2C',    // Fondo de las tarjetas y timeline
+                            accent: '#1E40AF',  // Azul acento
+                            text: '#FFFFFF',    // Texto principal
+                            subtext: '#9CA3AF'  // Texto secundario
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Transiciones suaves */
+        body,
+        div,
+        nav,
+        button,
+        a,
+        h1,
+        h2,
+        h3,
+        p,
+        span,
+        li,
+        section,
+        footer,
+        img {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, opacity 0.2s ease;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gray-50 text-slate-800 dark:bg-dark-bg dark:text-dark-text min-h-screen font-sans flex flex-col transition-colors duration-300">
+
+    <div class="max-w-5xl mx-auto px-6 md:px-12 w-full">
+
+        <header class="py-8 border-b border-gray-100 dark:border-slate-800 relative">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-slate-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z" />
+                    </svg>
+                    <a href="/index.html">
+                        <span class="font-bold text-lg text-slate-900 dark:text-white">FrederickPeal</span>
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-8">
+                    <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-500 dark:text-slate-400">
+                        <a href="/experience.html"
+                            class="hover:text-slate-900 dark:hover:text-white transition-colors">About</a>
+                        <a href="/my_work.html"
+                            class="hover:text-slate-900 dark:hover:text-white transition-colors">Projects</a>
+                        <a href="/blogs.html"
+                            class="hover:text-slate-900 dark:hover:text-white transition-colors">Blog</a>
+                    </nav>
+
+                    <div class="hidden md:block w-px h-5 bg-gray-200 dark:bg-slate-700"></div>
+
+                    <div class="flex gap-4 items-center">
+                        <button id="theme-toggle"
+                            class="text-slate-500 hover:text-yellow-500 dark:text-slate-400 dark:hover:text-yellow-400 transition-colors">
+                            <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                            <svg id="icon-moon" class="w-5 h-5 block" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                                </path>
+                            </svg>
+                        </button>
+
+                        <button id="mobile-menu-button"
+                            class="md:hidden text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors block">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobile-menu"
+                class="hidden md:hidden mt-4 pb-4 border-t border-gray-100 dark:border-slate-800 animate-fade-in">
+                <nav class="flex flex-col space-y-4 mt-4 text-center">
+                    <a href="experience.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-blue-500 font-medium transition-colors">About</a>
+                    <a href="/my_work.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-blue-500 font-medium transition-colors">Projects</a>
+                    <a href="/blogs.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-blue-500 font-medium transition-colors">Blog</a>
+                </nav>
+            </div>
+        </header>
+        <main class="pt-16 pb-20 max-w-5xl mx-auto flex-grow">
+
+            <section class="flex flex-col md:flex-row items-center gap-10 md:gap-16 mb-24">
+
+                <div class="relative w-full max-w-[16rem] md:max-w-[20rem] aspect-square 
+           rounded-3xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 
+           transition-transform duration-500 border-4 border-white dark:border-slate-800">
+
+                    <img src="assets/IMG_8833.webp" onerror="this.src='https://i.pravatar.cc/800?img=11'"
+                        alt="Frederick Peñalo" class="absolute inset-0 object-cover w-full h-full transform-gpu" />
+                </div>
+
+
+                <div class="w-full md:w-7/12 text-center md:text-left space-y-6">
+                    <div>
+                        <h2 class="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
+                            Who am I?</h2>
+                        <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
+                            I'm Frederick Peñalo
+                        </h1>
+                    </div>
+
+                    <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                        I am a dedicated <strong>Software Engineer</strong> specializing in backend architecture and
+                        scalable web solutions. My passion lies in transforming complex requirements into clean,
+                        efficient code.
+                    </p>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                        When I'm not coding, you can find me exploring new technologies, sharing knowledge through my
+                        blog,
+                        ,passing time with my family or playing some RPG.
+                    </p>
+
+                    <div class="flex gap-4 justify-center md:justify-start pt-2">
+                        <a href="https://github.com/FredPeal" target="_blank"
+                            class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900 transition-all duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M12 2C6.477 2 2 6.48 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/frederick-peal/" target="_blank"
+                            class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 dark:hover:text-white transition-all duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:frederick@frederickpeal.dev"
+                            class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-green-600 hover:text-white dark:hover:bg-green-500 dark:hover:text-white transition-all duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <div class="text-center max-w-3xl mx-auto mb-16 pt-8 border-t border-gray-100 dark:border-slate-800">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Work Experience</h2>
+                <p class="text-lg text-slate-600 dark:text-dark-subtext">
+                    A timeline of my career, highlighting key roles, responsibilities, and accomplishments in the tech
+                    industry.
+                </p>
+            </div>
+
+            <div class="relative">
+                <div
+                    class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200 dark:bg-white/10 hidden md:block">
+                </div>
+
+                <div class="mb-12 md:mb-0 relative md:flex items-center w-full md:w-1/2 md:ml-auto pl-0 md:pl-10">
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-0 md:top-1/2 w-4 h-4 rounded-full bg-blue-500 dark:bg-dark-accent border-4 border-white dark:border-dark-bg hidden md:block">
+                    </div>
+                    <div
+                        class="md:absolute md:right-full md:mr-10 md:top-1/2 md:-translate-y-1/2 text-slate-500 dark:text-dark-subtext text-sm font-medium mb-2 md:mb-0 text-left md:text-right">
+                        July 2022 - Present
+                    </div>
+                    <article
+                        class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-gray-200 dark:border-white/5 shadow-xl dark:shadow-none">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="p-3 rounded-xl bg-blue-100 dark:bg-dark-accent/20 text-blue-600 dark:text-dark-accent">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Senior Software Engineer
+                                </h3>
+                                <p class="text-slate-500 dark:text-dark-subtext text-sm">Kyanvasu Inc.</p>
+                            </div>
+                        </div>
+                        <ul class="list-disc list-inside text-slate-600 dark:text-dark-subtext text-sm space-y-2 mb-4">
+                            <li>Create and maintain backend services and APIs using Laravel Stack and MySQL.</li>
+                            <li>Collaborate with other team members to design and implement new features.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-dark-accent/20 dark:text-blue-300">React</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-dark-accent/20 dark:text-blue-300">TypeScript</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-dark-accent/20 dark:text-blue-300">GraphQL</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-dark-accent/20 dark:text-blue-300">Next.js</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="mb-12 md:mb-0 relative md:flex items-center w-full md:w-1/2 pr-0 md:pr-10">
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-0 md:top-1/2 w-4 h-4 rounded-full bg-blue-500 dark:bg-dark-accent border-4 border-white dark:border-dark-bg hidden md:block">
+                    </div>
+                    <div
+                        class="md:absolute md:left-full md:ml-10 md:top-1/2 md:-translate-y-1/2 text-slate-500 dark:text-dark-subtext text-sm font-medium mb-2 md:mb-0">
+                        Jan 2019 - May 2022
+                    </div>
+                    <article
+                        class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-gray-200 dark:border-white/5 shadow-xl dark:shadow-none md:text-right">
+                        <div class="flex items-center gap-4 mb-4 md:flex-row-reverse">
+                            <div
+                                class="p-3 rounded-xl bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-300">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Backend Developer</h3>
+                                <p class="text-slate-500 dark:text-dark-subtext text-sm">MCTekk SRL</p>
+                            </div>
+                        </div>
+                        <ul
+                            class="list-disc list-inside text-slate-600 dark:text-dark-subtext text-sm space-y-2 mb-4 inline-block text-left">
+                            <li>Create and maintained backend services and APIs. Using PHP and as Framework PhalconPHP
+                            </li>
+                            <li>Create Testing for backend services to ensure reliability and performance.
+                            </li>
+                            <li>Contributed to the migration of a legacy system to a modern system using PHP
+                            </li>
+                            <li>Create a OpenSource project to improve the API
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 md:justify-end">
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300">JavaScript</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300">Vue.js</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300">Node.js</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300">AWS</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="relative md:flex items-center w-full md:w-1/2 md:ml-auto pl-0 md:pl-10">
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-0 md:top-1/2 w-4 h-4 rounded-full bg-blue-500 dark:bg-dark-accent border-4 border-white dark:border-dark-bg hidden md:block">
+                    </div>
+                    <div
+                        class="md:absolute md:right-full md:mr-10 md:top-1/2 md:-translate-y-1/2 text-slate-500 dark:text-dark-subtext text-sm font-medium mb-2 md:mb-0 text-left md:text-right">
+                        March 2018 - Present
+                    </div>
+                    <article
+                        class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-gray-200 dark:border-white/5 shadow-xl dark:shadow-none">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="p-3 rounded-xl bg-green-100 dark:bg-green-900/20 text-green-600 dark:text-green-300">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-1.343 3-3s-1.343-3-3-3m0 12c-1.657 0-3-1.343-3-3s1.343-3 3-3m-9-6a9 9 0 019-9m-9 9a9 9 0 009 9">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Freelance Web Developer
+                                </h3>
+                                <p class="text-slate-500 dark:text-dark-subtext text-sm">Frederick Peñalo</p>
+                            </div>
+                        </div>
+                        <ul class="list-disc list-inside text-slate-600 dark:text-dark-subtext text-sm space-y-2 mb-4">
+                            <li>Create custom web apps for clients using Laravel and C#</li>
+                            <li>Deploy and maintained servers using Linux and AWS</li>
+                            <li>Participated in code reviews and team meetings to enhance development skills.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-300">HTML5</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-300">CSS3</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-300">jQuery</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-300">PHP</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-300">React</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-300">Linux</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script>
+        // 1. Lógica Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const iconSun = document.getElementById('icon-sun');
+        const iconMoon = document.getElementById('icon-moon');
+        const html = document.documentElement;
+
+        function toggleIcons() {
+            if (html.classList.contains('dark')) {
+                iconSun.classList.remove('hidden');
+                iconMoon.classList.add('hidden');
+            } else {
+                iconSun.classList.add('hidden');
+                iconMoon.classList.remove('hidden');
+            }
+        }
+
+        toggleIcons();
+
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            toggleIcons();
+        });
+
+        // 2. Lógica Menú Móvil
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconHamburger = document.getElementById('icon-hamburger');
+        const iconClose = document.getElementById('icon-close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+
+            iconHamburger.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

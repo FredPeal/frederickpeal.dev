@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio - My Work</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        // Colores personalizados extraídos de la imagen para el modo oscuro
+                        dark: {
+                            bg: '#0B1221',      // Fondo principal (azul muy oscuro)
+                            card: '#161F32',    // Fondo de las tarjetas
+                            accent: '#3B82F6'   // Azul brillante
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Transiciones suaves para todo */
+        body,
+        div,
+        nav,
+        button,
+        a,
+        h1,
+        h2,
+        h3,
+        p,
+        span {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-slate-800 dark:bg-dark-bg dark:text-slate-200 min-h-screen font-sans">
+    <div class="max-w-5xl mx-auto px-6 md:px-12">
+
+        <header class="py-8 border-b border-gray-100 dark:border-slate-800 relative">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-slate-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z" />
+                    </svg>
+                    <a href="/index.html">
+                        <span class="font-bold text-lg text-slate-900 dark:text-white">FrederickPeal</span>
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-8">
+                    <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-500 dark:text-slate-400">
+                        <a href="/experience.html"
+                            class="hover:text-slate-900 dark:hover:text-white transition-colors">About</a>
+                        <a href="/my_work.html"
+                            class="hover:text-slate-900 dark:hover:text-white transition-colors">Projects</a>
+                        <a href="/blogs.html"
+                            class="hover:text-slate-900 dark:hover:text-white transition-colors">Blog</a>
+                    </nav>
+
+                    <div class="hidden md:block w-px h-5 bg-gray-200 dark:bg-slate-700"></div>
+
+                    <div class="flex gap-4 items-center">
+                        <button id="theme-toggle"
+                            class="text-slate-500 hover:text-yellow-500 dark:text-slate-400 dark:hover:text-yellow-400 transition-colors">
+                            <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                            <svg id="icon-moon" class="w-5 h-5 block" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                                </path>
+                            </svg>
+                        </button>
+
+                        <button id="mobile-menu-button"
+                            class="md:hidden text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors block">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobile-menu"
+                class="hidden md:hidden mt-4 pb-4 border-t border-gray-100 dark:border-slate-800 animate-fade-in">
+                <nav class="flex flex-col space-y-4 mt-4 text-center">
+                    <a href="experience.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-blue-500 font-medium transition-colors">About</a>
+                    <a href="/my_work.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-blue-500 font-medium transition-colors">Projects</a>
+                    <a href="/blogs.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-blue-500 font-medium transition-colors">Blog</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">My Work</h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400">
+                    A selection of my recent projects. Each one is a piece of a journey in learning, creating, and
+                    problem-solving. Feel free to explore!
+                </p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 mb-12" id="filters">
+                <button
+                    class="filter-btn active px-6 py-2 rounded-full text-sm font-medium transition-all bg-blue-600 text-white shadow-lg shadow-blue-500/25"
+                    data-filter="all">All</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-white dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-white/10 border border-gray-200 dark:border-transparent"
+                    data-filter="php">PHP</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-white dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-white/10 border border-gray-200 dark:border-transparent"
+                    data-filter="laravel">Laravel</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-white dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-white/10 border border-gray-200 dark:border-transparent"
+                    data-filter="fullstack">Full-Stack</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-white dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-white/10 border border-gray-200 dark:border-transparent"
+                    data-filter="uiux">Fun</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <article
+                    class="project-card group bg-white dark:bg-dark-card rounded-2xl overflow-hidden border border-gray-200 dark:border-white/5 shadow-xl dark:shadow-none hover:-translate-y-2 transition-transform duration-300"
+                    data-category="php fullstack laravel">
+                    <div class="relative aspect-[4/3] overflow-hidden bg-orange-100 dark:bg-orange-900/20">
+                        <img src="assets/Screenshot 2025-12-16 022538.png" alt="Sales Dashboard"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Sales Report Platform</h3>
+                        <div class="flex gap-2 mb-4">
+                            <span
+                                class="px-2.5 py-1 text-xs font-semibold rounded bg-cyan-100 text-cyan-700 dark:bg-cyan-500/20 dark:text-cyan-300">Bootstrap</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-semibold rounded bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-300">Laravel</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-semibold rounded bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-300">VueJS</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3">
+                            A server side application developed to manage and visualize sales data for retail
+                            businesses. It features data import, dynamic reporting, and user authentication.
+                        </p>
+                        <div class="flex items-center gap-6 pt-4 border-t border-gray-100 dark:border-white/5 hidden">
+                            <a href="#"
+                                class="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                    </path>
+                                </svg>
+                                Live Demo
+                            </a>
+                            <a href="#"
+                                class="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                </svg>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article
+                    class="project-card group bg-white dark:bg-dark-card rounded-2xl overflow-hidden border border-gray-200 dark:border-white/5 shadow-xl dark:shadow-none hover:-translate-y-2 transition-transform duration-300"
+                    data-category="php PhalconPHP">
+                    <div class="relative aspect-[4/3] overflow-hidden bg-orange-100 dark:bg-orange-900/20">
+                        <img src="https://placehold.co/600x450/ffedd5/9a3412?text=Workflow" alt="workflow"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Workflow</h3>
+                        <div class="flex gap-2 mb-4">
+                            <span
+                                class="px-2.5 py-1 text-xs font-semibold rounded bg-cyan-100 text-cyan-700 dark:bg-cyan-500/20 dark:text-cyan-300">PhalconPHP</span>
+                            <span
+                                class="px-2.5 py-1 text-xs font-semibold rounded bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-300">PHP</span>
+
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3">
+                            A PHP package created for use with the PhalconPHP framework. It provides a robust workflow
+                            system, were users can create, manage, and track tasks efficiently within their
+                            applications.
+                        </p>
+                        <div class="flex items-center gap-6 pt-4 border-t border-gray-100 dark:border-white/5">
+                            <a href="#"
+                                class="flex hidden items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                    </path>
+                                </svg>
+                                Live Demo
+                            </a>
+                            <a href="https://github.com/bakaphp/workflow"
+                                class="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                </svg>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+    </div>
+    <script>
+        // 1. Lógica Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const iconSun = document.getElementById('icon-sun');
+        const iconMoon = document.getElementById('icon-moon');
+        const html = document.documentElement;
+
+        function toggleIcons() {
+            if (html.classList.contains('dark')) {
+                iconSun.classList.remove('hidden');
+                iconMoon.classList.add('hidden');
+            } else {
+                iconSun.classList.add('hidden');
+                iconMoon.classList.remove('hidden');
+            }
+        }
+
+        // Ejecutar al inicio
+        toggleIcons();
+
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            toggleIcons();
+        });
+
+        // 2. Lógica de Filtros
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projects = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remover clase activa de todos
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-blue-600', 'text-white', 'shadow-lg', 'shadow-blue-500/25');
+                    b.classList.add('bg-white', 'dark:bg-white/5', 'text-slate-600', 'dark:text-slate-300');
+                });
+
+                // Activar el botón clickeado
+                btn.classList.remove('bg-white', 'dark:bg-white/5', 'text-slate-600', 'dark:text-slate-300');
+                btn.classList.add('bg-blue-600', 'text-white', 'shadow-lg', 'shadow-blue-500/25');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                // Filtrar proyectos
+                projects.forEach(project => {
+                    const categories = project.getAttribute('data-category');
+                    if (filterValue === 'all' || categories.includes(filterValue)) {
+                        project.style.display = 'block';
+                        // Pequeña animación de entrada
+                        setTimeout(() => project.style.opacity = '1', 50);
+                    } else {
+                        project.style.display = 'none';
+                        project.style.opacity = '0';
+                    }
+                });
+            });
+        });
+        window.onload = () => {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            themeToggleBtn.click();
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Frederick Peñalo</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body,
+        nav,
+        button,
+        a {
+            transition: all 0.3s ease;
+        }
+
+        /* Clases para paginación activa */
+        .page-active {
+            background-color: #3b82f6;
+            /* bg-primary */
+            color: white;
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200 min-h-screen transition-colors duration-300 font-sans">
+
+    <div class="max-w-5xl mx-auto px-6 md:px-12">
+
+        <header class="py-8 border-b border-gray-100 dark:border-slate-800 relative">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-slate-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z" />
+                    </svg>
+                    <a href="/index.html">
+                        <span class="font-bold text-lg text-slate-900 dark:text-white">FrederickPeal</span>
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-8">
+                    <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-500 dark:text-slate-400">
+                        <a href="/experience.html"
+                            class="hover:text-slate-900 dark:hover:text-white transition-colors">About</a>
+                        <a href="/my_work.html"
+                            class="hover:text-slate-900 dark:hover:text-white transition-colors">Projects</a>
+                        <a href="/blogs.html"
+                            class="hover:text-slate-900 dark:hover:text-white transition-colors">Blog</a>
+                    </nav>
+
+                    <div class="hidden md:block w-px h-5 bg-gray-200 dark:bg-slate-700"></div>
+
+                    <div class="flex gap-4 items-center">
+                        <button id="theme-toggle"
+                            class="text-slate-500 hover:text-yellow-500 dark:text-slate-400 dark:hover:text-yellow-400 transition-colors">
+                            <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                            <svg id="icon-moon" class="w-5 h-5 block" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                                </path>
+                            </svg>
+                        </button>
+
+                        <button id="mobile-menu-button"
+                            class="md:hidden text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors block">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobile-menu"
+                class="hidden md:hidden mt-4 pb-4 border-t border-gray-100 dark:border-slate-800 animate-fade-in">
+                <nav class="flex flex-col space-y-4 mt-4 text-center">
+                    <a href="experience.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-blue-500 font-medium transition-colors">About</a>
+                    <a href="/my_work.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-blue-500 font-medium transition-colors">Projects</a>
+                    <a href="/blogs.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-blue-500 font-medium transition-colors">Blog</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="py-12 md:py-16 space-y-10">
+            <div class="space-y-4">
+                <h1 class="text-4xl font-black tracking-tight text-slate-900 dark:text-white">My Thoughts</h1>
+                <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl">
+                    A collection of my writings and notes on web development, technology, and coding experiments.
+                </p>
+            </div>
+
+            <div id="blog-section" class="flex flex-col divide-y divide-gray-200 dark:divide-gray-800">
+                <div class="py-10 text-center text-slate-500">
+                    <span class="animate-pulse">Loading articles...</span>
+                </div>
+            </div>
+
+            <div id="pagination-container"
+                class="flex items-center justify-between mt-8 pt-4 border-t border-gray-100 dark:border-gray-800 hidden">
+
+                <button id="btn-prev"
+                    class="flex items-center gap-2 rounded-lg border border-gray-300 dark:border-gray-700 px-4 h-10 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+                    <span class="material-symbols-outlined text-base">chevron_left</span>
+                    <span>Previous</span>
+                </button>
+
+                <div id="pagination-numbers" class="hidden sm:flex items-center gap-2">
+                </div>
+
+                <button id="btn-next"
+                    class="flex items-center gap-2 rounded-lg border border-gray-300 dark:border-gray-700 px-4 h-10 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+                    <span>Next</span>
+                    <span class="material-symbols-outlined text-base">chevron_right</span>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { fetchDevToArticles } from './js/devTo.js';
+
+        // --- Variables de Estado para Paginación ---
+        let allArticles = [];
+        let currentPage = 1;
+        const itemsPerPage = 3;
+
+        window.onload = async function () {
+            try {
+                // 1. Obtener todos los artículos una sola vez
+                const blogs = await fetchDevToArticles("frederickpeal");
+
+                if (blogs && blogs.length > 0) {
+                    allArticles = blogs;
+                    // Mostrar contenedor de paginación
+                    document.getElementById('pagination-container').classList.remove('hidden');
+                    // Renderizar página 1
+                    renderPage(1);
+                } else {
+                    document.getElementById('blog-section').innerHTML = '<p class="text-center py-4">No articles found.</p>';
+                }
+
+            } catch (e) {
+                console.error("Error cargando blog", e);
+                document.getElementById('blog-section').innerHTML = '<p class="text-center py-4 text-red-500">Error loading articles.</p>';
+            }
+        };
+
+        // --- Función para Renderizar los Artículos de la página actual ---
+        window.renderPage = function (page) {
+            currentPage = page;
+            const blogSection = document.getElementById('blog-section');
+            blogSection.innerHTML = ''; // Limpiar contenido anterior
+
+            // Calcular índices (Ej: Pag 1 -> slice(0, 3))
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            // Obtener solo los elementos para esta página
+            const pageArticles = allArticles.slice(startIndex, endIndex);
+
+            // Generar HTML
+            pageArticles.forEach(blog => {
+                // Crear contenedor
+                const wrapper = document.createElement('div');
+                wrapper.className = "py-6 hover:bg-gray-50 dark:hover:bg-slate-800/50 rounded-xl transition-colors p-4 -mx-4";
+
+                let firstWord = blog.title.split(' ')[0];
+                let date = new Date(blog.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+                wrapper.innerHTML = `
+                    <div class="flex flex-col gap-2">
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white leading-tight">
+                            ${blog.title}
+                        </h2>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                            Published on ${date}
+                        </p>
+                        <p class="text-slate-600 dark:text-slate-300 mt-2 text-base leading-relaxed line-clamp-2">
+                            ${blog.description}
+                        </p>
+                        <a href="${blog.url}" target="_blank" class="flex items-center gap-2 text-primary text-sm font-bold mt-3 w-fit group hover:underline">
+                            <span>Read More</span>
+                            <span class="material-symbols-outlined text-base transition-transform duration-200 group-hover:translate-x-1">arrow_forward</span>
+                        </a>
+                    </div>
+                `;
+                blogSection.appendChild(wrapper);
+            });
+
+            // Actualizar controles de paginación
+            updatePaginationControls();
+
+            // Scroll suave hacia arriba si estamos muy abajo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- Función para Actualizar Botones de Paginación ---
+        function updatePaginationControls() {
+            const totalPages = Math.ceil(allArticles.length / itemsPerPage);
+            const numbersContainer = document.getElementById('pagination-numbers');
+            const btnPrev = document.getElementById('btn-prev');
+            const btnNext = document.getElementById('btn-next');
+
+            // 1. Botones Prev/Next estados
+            btnPrev.disabled = currentPage === 1;
+            btnNext.disabled = currentPage === totalPages;
+
+            // Event Listeners (limpiamos clones para evitar duplicados si se llama varias veces)
+            btnPrev.onclick = () => { if (currentPage > 1) renderPage(currentPage - 1); };
+            btnNext.onclick = () => { if (currentPage < totalPages) renderPage(currentPage + 1); };
+
+            // 2. Generar Números
+            numbersContainer.innerHTML = '';
+
+            // Lógica simple para mostrar páginas (si son muchas, aquí se pondría la lógica de '...')
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.innerText = i;
+                pageBtn.className = `flex h-9 w-9 items-center justify-center rounded-lg text-sm font-medium transition-colors ${i === currentPage
+                    ? 'page-active'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    }`;
+                pageBtn.onclick = () => renderPage(i);
+                numbersContainer.appendChild(pageBtn);
+            }
+        }
+    </script>
+
+    <script>
+        // Lógica de UI (Dark Mode / Mobile Menu)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        const iconSun = document.getElementById('icon-sun');
+        const iconMoon = document.getElementById('icon-moon');
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleIcons() {
+            if (html.classList.contains('dark')) {
+                iconSun.classList.remove('hidden');
+                iconMoon.classList.add('hidden');
+            } else {
+                iconSun.classList.add('hidden');
+                iconMoon.classList.remove('hidden');
+            }
+        }
+        toggleIcons();
+
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            toggleIcons();
+        });
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

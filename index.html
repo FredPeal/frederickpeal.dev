@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Frederick Peñalo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    keyframes: {
+                        'fade-in': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fade-in 0.3s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body,
+        nav,
+        button,
+        a {
+            transition: all 0.3s ease;
+        }
+
+        /* Estilos para el modal */
+        #image-modal {
+            backdrop-filter: blur(3px);
+            /* Un poco más de desenfoque para el fondo */
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200 min-h-screen transition-colors duration-300">
+
+    <div class="max-w-5xl mx-auto px-6 md:px-12">
+
+        <header class="py-8 border-b border-gray-100 dark:border-slate-800 relative">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-slate-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z" />
+                    </svg>
+                    <a href="/index.html">
+                        <span class="font-bold text-lg text-slate-900 dark:text-white">FrederickPeal</span>
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-8">
+                    <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-500 dark:text-slate-400">
+                        <a href="/experience.html"
+                            class="hover:text-slate-900 dark:hover:text-white transition-colors">About</a>
+                        <a href="/my_work.html"
+                            class="hover:text-slate-900 dark:hover:text-white transition-colors">Projects</a>
+                        <a href="/blogs.html"
+                            class="hover:text-slate-900 dark:hover:text-white transition-colors">Blog</a>
+                    </nav>
+
+                    <div class="hidden md:block w-px h-5 bg-gray-200 dark:bg-slate-700"></div>
+
+                    <div class="flex gap-4 items-center">
+                        <button id="theme-toggle"
+                            class="text-slate-500 hover:text-yellow-500 dark:text-slate-400 dark:hover:text-yellow-400 transition-colors">
+                            <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                            <svg id="icon-moon" class="w-5 h-5 block" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                                </path>
+                            </svg>
+                        </button>
+
+                        <button id="mobile-menu-button"
+                            class="md:hidden text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors block">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobile-menu"
+                class="hidden md:hidden mt-4 pb-4 border-t border-gray-100 dark:border-slate-800 animate-fade-in">
+                <nav class="flex flex-col space-y-4 mt-4 text-center">
+                    <a href="experience.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-blue-500 font-medium transition-colors">About</a>
+                    <a href="/my_work.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-blue-500 font-medium transition-colors">Projects</a>
+                    <a href="/blogs.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-blue-500 font-medium transition-colors">Blog</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="py-12 md:py-16 space-y-20">
+
+            <section class="text-center space-y-6">
+                <div class="relative w-28 h-28 mx-auto group">
+
+                    <img id="profile-img" src="assets/IMG_8833.webp" data-full-img="assets/IMG_8833.webp"
+                        onerror="this.src='https://i.pravatar.cc/300?img=11'" alt="Frederick Peñalo"
+                        class="rounded-full object-cover w-full h-full shadow-lg border-4 border-white dark:border-slate-900 cursor-pointer group-hover:opacity-90 transition-opacity">
+
+                    <div
+                        class="absolute inset-0 rounded-full flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Frederick
+                        Peñalo</h1>
+                    <p class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+                        Software Engineer</p>
+                </div>
+                <p class="text-blue-600 dark:text-blue-400 font-medium text-lg">Specializing in Web Development with PHP
+                    and Laravel Framework</p>
+            </section>
+
+            <section id="about" class="max-w-3xl mx-auto text-center space-y-6">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white">About Me</h2>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+                    I'm a passionate Software Engineer who enjoys solving problems and creating efficient solutions. I
+                    love learning new
+                    things and I’m always open to new challenges that help me grow both personally and professionally.
+                    My personal motto is: "Programming languages are just a tool."
+                </p>
+            </section>
+
+            <section id="projects" class="space-y-8 hidden">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Selected Projects</h2>
+                    <p><a href="#" class="text-blue-500 text-sm">See More</a> </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="group cursor-pointer">
+                        <div
+                            class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-50 dark:bg-slate-800 relative shadow-sm hover:shadow-md transition-all">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors z-10">
+                            </div>
+                            <img src="https://placehold.co/600x400/f1f5f9/94a3b8?text=Store" alt="Project 1"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-lg">E-commerce Store</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">A fully functional e-commerce
+                            platform built with React and Redux.</p>
+                    </div>
+                    <div class="group cursor-pointer">
+                        <div
+                            class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-50 dark:bg-slate-800 relative shadow-sm hover:shadow-md transition-all">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors z-10">
+                            </div>
+                            <img src="https://placehold.co/600x400/f8fafc/94a3b8?text=Blog" alt="Project 2"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-lg">Personal Blog</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">A blog showcasing my thoughts on web
+                            development and technology.</p>
+                    </div>
+                    <div class="group cursor-pointer">
+                        <div
+                            class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-50 dark:bg-slate-800 relative shadow-sm hover:shadow-md transition-all">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors z-10">
+                            </div>
+                            <img src="https://placehold.co/600x400/e2e8f0/94a3b8?text=Portfolio" alt="Project 3"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-lg">Portfolio Website</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">My personal portfolio website to
+                            showcase my work and skills.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="blog" class="space-y-10">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Latest from Blog</h2>
+                    <p><a href="#" class="text-blue-500 text-sm">See More</a> </p>
+                </div>
+                <div class="grid gap-10" id="blog-section">
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="image-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 opacity-0 pointer-events-none transition-opacity duration-300">
+        <button id="close-modal-btn"
+            class="absolute top-4 right-4 text-white hover:text-gray-300 z-50 p-2 bg-black/20 rounded-full md:bg-transparent">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <div class="relative max-h-screen p-4 flex items-center justify-center w-full h-full">
+            <div>
+
+                <img id="modal-image-element" src=""
+                    class="max-w-full max-h-[90vh] rounded-lg shadow-2xl transform scale-95 transition-transform duration-300 object-contain"
+                    alt="Profile Full">
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { fetchDevToArticles } from './js/devTo.js';
+
+        window.onload = async function () {
+            // Cargar Blog (Igual que antes)
+            try {
+                const blogs = await fetchDevToArticles("frederickpeal");
+                if (blogs && blogs.length > 0) {
+                    let blogsReduce = blogs.slice(0, 2);
+                    const blogSection = document.getElementById('blog-section');
+                    blogsReduce.forEach(blog => {
+                        const article = document.createElement('article');
+                        article.className = 'flex flex-col md:flex-row gap-8 items-center group';
+                        let firstWord = blog.title.split(' ')[0];
+                        let imageUrl = blog.cover_image ?? "https://placehold.co/400x300/cbd5e1/64748b?text=" + firstWord;
+
+                        article.innerHTML = `
+                            <div class="w-full md:w-64 h-40 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100 dark:bg-slate-800 shadow-sm">
+                                <img src="${imageUrl}" alt="${blog.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="flex-1 space-y-3">
+                                <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">${blog.tags ? blog.tags.split(',').map(tag => tag.trim()).join(', ') : ''}</span>
+                                <h3 class="text-xl font-bold">
+                                    <a class="text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" href="${blog.url}" target="_blank">${blog.title}</a>
+                                </h3>
+                                <p class="text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-2">
+                                    ${blog.description}
+                                </p>
+                                <a href="${blog.url}" target="_blank" class="inline-flex items-center text-sm font-bold text-slate-900 dark:text-white mt-2 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                                    Read Article <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </a>
+                            </div>
+                        `;
+                        blogSection.appendChild(article);
+                        blogSection.appendChild(document.createElement('div')).className = 'h-px bg-gray-100 dark:bg-slate-800 w-full';
+                    });
+                }
+            } catch (e) { console.log("Error cargando blog", e); }
+        };
+    </script>
+
+    <script>
+        // --- 1. DARK MODE ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const iconSun = document.getElementById('icon-sun');
+        const iconMoon = document.getElementById('icon-moon');
+        const html = document.documentElement;
+
+        function toggleIcons() {
+            if (html.classList.contains('dark')) {
+                iconSun.classList.remove('hidden');
+                iconMoon.classList.add('hidden');
+            } else {
+                iconSun.classList.add('hidden');
+                iconMoon.classList.remove('hidden');
+            }
+        }
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            toggleIcons();
+        });
+
+        // --- 2. MOBILE MENU ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- 3. MODAL DE IMAGEN (POPUP) ---
+        const profileImg = document.getElementById('profile-img');
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-image-element');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+
+        // Función abrir
+        profileImg.addEventListener('click', () => {
+            // CAMBIO AQUÍ: Leer el atributo data-full-img
+            const fullImageURL = profileImg.getAttribute('data-full-img');
+
+            // Usar esa URL para el modal
+            modalImg.src = fullImageURL;
+
+            modal.classList.remove('hidden');
+            // Pequeño timeout para animación
+            setTimeout(() => {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 10);
+        });
+
+        // Función cerrar
+        function closeModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            // Esperar a que termine la transición para ocultar el div
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalImg.src = ""; // Limpiar src al cerrar
+            }, 300);
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Cerrar al hacer click fuera (en el fondo oscuro)
+        modal.addEventListener('click', (e) => {
+            // Si el click fue en el fondo (modal) o en el contenedor flex directo, cerramos.
+            // Esto evita que se cierre si se hace click en la imagen misma.
+            if (e.target === modal || e.target.classList.contains('relative')) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+    </script>
+</body>
+
+</html>
